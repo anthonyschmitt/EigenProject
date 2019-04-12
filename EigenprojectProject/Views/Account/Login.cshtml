@@ -1,0 +1,40 @@
+﻿@using Microsoft.CodeAnalysis
+
+@{ ViewData["Title"] = "Login";
+}
+
+<body>
+    <div class="col-md-5" style="float: none; margin-left: auto; margin-right: auto; margin-top: 15px;" ;>
+        <div class="panel-group">
+            <div class=" panel panel-default ">
+                <form asp-controller="User" asp-action="Login">
+                    <label>Naam:</label>
+                    <input name="userName" id="TextBoxUsername" type="text" placeholder="Gebruikersnaam" class="center-block form-control center" />
+                    <label>Wachtwoord:</label>
+                    <div class="password-wrapper"><input name="passWord" id="TextBoxPassword" type="password" placeholder="Wachtwoord" class="center-block form-control center" /><img src="~/images/other_icons/show-password-white.png" class="show-pass-img" /></div>
+                    <div class="text-danger">@ViewBag.errorMessage</div>
+                    <div class="center" style="padding-top: 10%; padding-bottom: 10%">
+                        @using (Html.BeginForm())
+                        {
+                            <button class="btn btn-default" type="submit">Login</button>
+                        }
+
+                     <button id="register" class="btn btn-default" style="margin-left: 75%;">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+@section Scripts{
+    <script>
+        $("#register").click(function (e) {
+            e.preventDefault();
+            location.href = "/user/register";
+        });
+    </script>
+}
+
+

@@ -1,0 +1,73 @@
+﻿@using EigenprojectProject.Models
+@model IEnumerable<EigenprojectProject.ViewModels.UserOverviewViewModel>
+
+
+@{
+    ViewData["Title"] = "UsersOverview";
+}
+
+<h2>Gebruikers</h2>
+
+
+<a asp-controller="User" asp-action="Register"><button class="btn eigenproject_button eigenproject_button-small">Nieuwe gebruiker</button></a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                User Id
+            </th>
+            <th>
+                Gebruikersnaam:
+            </th>
+            <th>
+                Voornaam:
+            </th>
+            <th>
+                Achternaam:
+            </th>
+            <th>
+                Email adres:
+            </th>
+            <th>
+                AccesLevel
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.UserId
+                    </td>
+                    <td>
+                        @item.Firstname
+                    </td>
+                    <td>
+                        @item.Firstname
+                    </td>
+                    <td>
+                        @item.Lastname
+                    </td>
+                    <td>
+                        @item.Email
+                    </td>
+                    <td>
+                        @item.AccessLevel.ToString()
+                    </td>
+                    <td>
+                        @Html.ActionLink("Pas aan", "Edit", "User", new { id = item.UserId })
+                        @Html.ActionLink("Details", "Details", "User", new { id = item.UserId }) 
+                        @Html.ActionLink("Verwijder", "Delete", "User", new { id = item.UserId }) 
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>
+

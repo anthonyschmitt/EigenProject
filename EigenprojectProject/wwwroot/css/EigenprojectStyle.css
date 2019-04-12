@@ -1,0 +1,201 @@
+:root {
+    --eigenproject_darkgreen: #003840;
+    --eigenproject_white: #FFFFFF;
+    --eigenproject_lighter-green: #005A5B;
+    --eigenproject_black: #000000;
+    --eigenproject_form-green: #007369;
+    --eigenproject_placeholder-default: #02A676;
+    --gray-border-color: #003840;
+
+}   
+
+
+.r-h1{
+    font-size: 70px;
+}
+
+.r-h2{
+    font-size: 45px;
+}
+
+.r-h3{
+    font-size: 32px;
+}
+
+.r-h4{
+    font-size: 24px;
+}
+
+.r-h5{
+    font-size: 20px;
+}
+
+.r-p{
+    font-size: 16px;
+}
+
+/* Buttons */
+.eigenproject_button {
+    display: inline-block;
+    position: relative;
+    background-color: var(--eigenproject_darkgreen);
+    color: var(--eigenproject_white);
+    font-weight: bold;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    padding: 0 10px 0 0;
+    padding-right: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.eigenproject_button div {
+    position: absolute;
+    width: 20px;
+    display: inline-block;
+    height: 50px;
+    line-height: inherit;
+}
+
+.eigenproject_button-small {
+    height: 25px;
+    line-height: 25px;
+    font-size: 15px;
+    width: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+    /* Hover effects */
+.eigenproject_button:hover {
+    background-color: var(--eigenproject_form-green);
+    color: var(--eigenproject_white);
+    cursor: pointer;
+}
+
+
+/* Forms */
+input.eigenprojectt_input-default {
+    color: var(--eigenproject_placeholder-default);
+    padding-bottom: -2px;
+    border-bottom: 2px solid var(--eigenproject_placeholder-default);
+    outline: none !important;
+    background-color: var(--eigenproject_form-green);
+}
+
+input.eigenproject_input-active, input.eigenproject_input-default:hover, input.eigenproject_input-default:focus {
+    border-color: none !important;
+    outline: none !important;
+    border-bottom-color: var(--eigenproject_black) !important;
+}
+
+
+input.eigenprojectt_input-default::placeholder {
+    color: var(--eigenproject_placeholder-default) !important;
+}
+
+.eigenprojectt_input-default:hover::placeholder, .eigenprojectt_input-default:focus::placeholder {
+    color: var(--eigenproject_black) !important;
+}
+
+.eigenproject-input-wrong {
+}
+
+    /* Dropdown */
+.eigenproject_dropdown {
+    background-color: var(--eigenproject_lighter-green) !important;
+    color: var(--eigenproject_white);
+    font-weight: bold;
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    padding-right: 10px;
+    width: 300px;
+    text-align: center;
+    border: none;
+    padding-left: 5px;
+    border: 1px solid var(--gray-border-color);
+}
+
+/* Styles not given by eigenproject */
+
+/* Helper classes */
+.horizontal-center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input, .password-wrapper img {
+    position: absolute;
+}
+
+.password-wrapper img {
+    top: 8px; /* Not final */
+    width: 20px;
+    height: 20px;
+    right: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+}
+
+.password-wrapper input {
+    left: 0px;
+    right: 0px;
+}
+
+
+/* TESTING */
+.default-checkbox {
+    top: 0;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    z-index: 0;
+}
+
+.checkbox-container {
+
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked .eigenproject_checkbox {
+    background-color: #2196F3;
+}
+
+.eigenproject_checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    z-index: 1;
+}
+
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .eigenproject_checkbox:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
