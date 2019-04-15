@@ -36,9 +36,9 @@ namespace EigenprojectProject
 
             services.AddSession(options =>
             {
-                options.IdleTimeout = System.TimeSpan.FromMinutes(10);
-                options.Cookie.HttpOnly = true;
-                options.Cookie.IsEssential = true;
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+                //options.Cookie.HttpOnly = true;
+                //options.Cookie.IsEssential = true;
             });
 
 
