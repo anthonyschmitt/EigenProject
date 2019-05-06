@@ -1,0 +1,24 @@
+﻿@model EigenprojectProject.ViewModels.post.PostViewModel
+<form asp-action="CreatePost" asp-controller="Home">
+    <div class="form-group">
+        <label asp-for="Titel" class="control-label"></label>
+        <input asp-for="Titel" placeholder="Titel" class="form-control" />
+        <span asp-validation-for="Titel" class="text-danger"></span>
+        <br />
+        <br />
+        <label asp-for="Vraag" class="control-label"></label>
+        <textarea asp-for="Vraag" placeholder="Vraag" class="form-control"></textarea>
+        <span asp-validation-for="Vraag" class="text-danger"></span>
+        <br />
+        <br />
+        <label asp-for="Afbeelding" class="control-label"></label>
+        <input type="file" asp-for="Afbeelding" class="form-control" />
+        <span asp-validation-for="Afbeelding" class="text-danger"></span>
+        <br />
+        <br />
+        <button type="submit" class="btn eigenproject_button" style="margin-top: 20px;">Post</button>
+    </div>
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

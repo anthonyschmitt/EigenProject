@@ -85,10 +85,11 @@ namespace EigenprojectProject.Controllers
                 if (userLogic.Login(username, password) && ModelState.IsValid)
                 {
                     HttpContext.Session.SetString("Username", userLogic.GetUserByUsername(username).Username);
+                    HttpContext.Session.SetInt32("ID", userLogic.GetUserByUsername(username).UserId);
                     HttpContext.Session.SetInt32("AccessLevel",Convert.ToInt32(userLogic.GetUserByUsername(username).AccessLevel));
                     ViewBag.Username = HttpContext.Session.GetString("Username");
                     ViewBag.AccLevel = ViewBag.AccLayer = _userContext.GetAccLevel(HttpContext.Session.GetString("Username"));
-                    return View("~/Views/Home/Index.cshtml");
+                    return RedirectToAction("Index", "Home");
                 }
                 ViewBag.errorMessage = "Wachtwoord en gebruikersnaam komt niet overeen.";
                 return View("~/Views/Account/Login.cshtml");

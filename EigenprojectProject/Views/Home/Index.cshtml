@@ -1,5 +1,76 @@
-﻿@{
+﻿@model IEnumerable<EigenprojectProject.ViewModels.post.PostViewModel>
+@using EigenprojectProject.ViewModels.post
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <h1>@ViewBag.Username</h1>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Nieuwe Gebeurtenis </h4>
+            </div>
+            <div class="modal-body">
+                <partial name="CreatePartialPost.cshtml" model="new PostViewModel()">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="updatePost" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Update Post</h4>
+            </div>
+            <div class="modal-body">
+                <partial name="CreatePartialPost.cshtml" model="new PostViewModel()">
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2>Alle Gebeurtenissen</h2>
+<hr />
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Nieuwe gebeurtenis</button>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Titel</th>
+        <th>Vraag</th>
+        <th>Afbeelding</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+        @foreach (PostViewModel item in Model)
+        {
+            <tr>
+                <td>@item.Titel</td>
+                <td>@item.Vraag</td>
+                <td>@item.Afbeelding</td>
+                <td>
+                    <a href="/Home/deletePost/@item.PostId"><button class="btn btn-danger">Delete</button></a>
+                    <button class="btn btn-submit" data-toggle="modal" data-target="#updatePost" id="@item.PostId">Update</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+  </table>
